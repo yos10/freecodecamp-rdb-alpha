@@ -26,7 +26,7 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> \
 USER ${USERNAME}
 
 # Install packages for projects
-RUN sudo apt install -y curl git postgresql postgresql-contrib nano bash-completion man-db
+RUN sudo apt install -y curl git postgresql postgresql-contrib nano bash-completion man-db vim
 
 # Set up locales
 RUN sudo locale-gen ${LOCALE} && sudo update-locale LANG=${LOCALE}
@@ -38,3 +38,4 @@ RUN sudo apt install -y nodejs
 # Configure project directory
 RUN mkdir ${HOMEDIR}/project
 WORKDIR ${HOMEDIR}/project
+

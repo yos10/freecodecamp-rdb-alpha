@@ -1,6 +1,9 @@
 {
   "name": "RDB Alpha",
-  "dockerFile": "../Dockerfile",
+  "dockerComposeFile": [
+    "../compose.yml"
+  ],
+  "service": "app",
   "workspaceFolder": "/home/codeally/project",
   "extensions": [
     "coderoad.coderoad@0.15.1"

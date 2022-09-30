@@ -1,3 +1,31 @@
+### コンテナの終了
+
+1. コマンドパレット > `Remote-Containers: Reopen Folder Locally`
+
+2. ターミナル > `docker compose down`
+
+### メモ
+
+#### Oops! Select An Empty VSCode Workspace
+
+新しいチュートリアルを開始する時に `Oops! Select An Empty VSCode Workspace` というエラーが表示された場合、ボリュームを削除する。
+
+```
+docker compose down
+docker volume ls
+docker volume rm rdb-alpha_codeally-project
+```
+
+#### psql: FATAL: Peer authentication failed for user "freecodecamp"
+
+```
+sudo sed -i 's/\/etc\/postgresql\/12\/main\/pg_hba.conf/\/home\/codeally\/project\/.freeCodeCamp\/pg_hba.conf/' /etc/postgresql/12/main/postgresql.conf
+
+sudo service postgresql restart
+
+psql --username=freecodecamp dbname=postgres
+```
+
 ### Prerequisites
 
 1. [Docker Engine](https://docs.docker.com/engine/)

@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    volumes:
+      - codeally-project:/home/codeally/project
+      - codeally-db-data:/var/lib/postgresql/12/main
+
+volumes:
+  codeally-project:
+  codeally-db-data:
