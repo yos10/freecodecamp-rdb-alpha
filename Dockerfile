@@ -39,3 +39,4 @@ RUN sudo apt install -y nodejs
 RUN mkdir ${HOMEDIR}/project
 WORKDIR ${HOMEDIR}/project
 
+COPY --chown=${USERNAME}:${USERNAME} --chmod=755 restart-postgresql.sh ${HOMEDIR}
