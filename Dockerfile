@@ -40,3 +40,9 @@ RUN mkdir ${HOMEDIR}/project
 WORKDIR ${HOMEDIR}/project
 
 COPY --chown=${USERNAME}:${USERNAME} --chmod=755 restart-postgresql.sh ${HOMEDIR}
+
+USER root
+RUN mkdir /commandhistory \
+    && chown -R $USERNAME /commandhistory
+ENV PSQL_HISTORY="/commandhistory/.psql_history"
+USER ${USERNAME}

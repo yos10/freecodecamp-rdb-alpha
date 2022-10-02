@@ -7,7 +7,9 @@ services:
     volumes:
       - codeally-project:/home/codeally/project
       - codeally-db-data:/var/lib/postgresql/12/main
+      - postgres-psqlhistory:/commandhistory
 
 volumes:
   codeally-project:
   codeally-db-data:
+  postgres-psqlhistory:
