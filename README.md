@@ -8,7 +8,7 @@
 
 #### Oops! Select An Empty VSCode Workspace
 
-新しいチュートリアルを開始する時に `Oops! Select An Empty VSCode Workspace` というエラーが表示された場合、ボリュームを削除する。
+新しいチュートリアルを開始する時に `Oops! Select An Empty VSCode Workspace` というエラーが表示された場合、コンテナを終了してからボリュームを削除する。
 
 ```
 docker compose down
@@ -25,6 +25,9 @@ sudo service postgresql restart
 
 psql --username=freecodecamp dbname=postgres
 ```
+
+#### コマンドを入力しても検知されなかったり、先へ進めない場合
+`/home/codeally/project` にいることを確認してから CodeRoad の Reset ボタンをクリック
 
 ### Prerequisites
 
