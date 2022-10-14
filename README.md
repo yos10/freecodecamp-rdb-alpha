@@ -8,13 +8,21 @@
 
 #### Oops! Select An Empty VSCode Workspace
 
-新しいチュートリアルを開始する時に `Oops! Select An Empty VSCode Workspace` というエラーが表示された場合、コンテナを終了してからボリュームを削除する。
+新しいチュートリアルを開始する時に `Oops! Select An Empty VSCode Workspace` というエラーが表示された場合
 
-```
-docker compose down
-docker volume ls
-docker volume rm rdb-alpha_codeally-project
-```
+- `/home/codeally/project/` 以下を空にする
+
+  ```
+  cd /home/codeally/project/
+  rm -rf .*
+  ```
+
+- もしくはコンテナを終了してからボリュームを削除
+  ```
+  docker compose down
+  docker volume ls
+  docker volume rm rdb-alpha_codeally-project
+  ```
 
 #### psql: FATAL: Peer authentication failed for user "freecodecamp"
 
@@ -26,8 +34,30 @@ sudo service postgresql restart
 psql --username=freecodecamp dbname=postgres
 ```
 
+イメージに postgresql 再起動用のファイルをコピーしてあるので、以下を実行
+
+```
+cd /home/codeally/project/
+../restart-postgresql.sh
+```
+
 #### コマンドを入力しても検知されなかったり、先へ進めない場合
+
 `/home/codeally/project` にいることを確認してから CodeRoad の Reset ボタンをクリック
+
+#### dump ファイル作成
+
+```
+cd /home/codeally/project
+
+pg_dump -cC --inserts -U freecodecamp データベース名 > データベース名.sql
+```
+
+ローカルマシン側にコピー
+
+```
+docker compose cp app:/home/codeally/project/データベース名.sql ${PWD}
+```
 
 ### Prerequisites
 
